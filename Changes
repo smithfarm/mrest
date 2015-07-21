@@ -428,3 +428,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 0.270  2015-07-16 11:48 CEST
 - Test.pm: make is_deeply check handle case when the value is undef?
 
+0.271  2015-07-21 19:36 CEST
+- Update copyright statement to 2015
+- set $VERSION in top-level module only
+- new release script
+
