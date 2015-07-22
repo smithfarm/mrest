@@ -50,8 +50,8 @@ use HTTP::Request::Common qw( GET PUT POST DELETE );
 use JSON;
 use LWP::UserAgent;
 use LWP::Protocol::https;
-print "LWP::UserAgent: ".LWP::UserAgent->VERSION,"\n";
-print "LWP::Protocol::https: ".LWP::Protocol::https->VERSION,"\n";
+#print "LWP::UserAgent: ".LWP::UserAgent->VERSION,"\n";
+#print "LWP::Protocol::https: ".LWP::Protocol::https->VERSION,"\n";
 use URI::Escape;
 use Web::MREST::Util qw( $JSON normalize_filespec );
 
@@ -91,7 +91,12 @@ our @EXPORT_OK = qw( send_req );
 =cut
 
 # user agent
-my $ua = LWP::UserAgent->new( ssl_opts => { verify_hostname => 0, SSL_ca_file => '/usr/share/pki/trust/anchors/SUSE_Trust_Root.crt.pem' } );
+my $ua = LWP::UserAgent->new( 
+    ssl_opts => { 
+        verify_hostname => 0, 
+        SSL_ca_file => '/usr/share/pki/trust/anchors/SUSE_Trust_Root.crt.pem' 
+    }
+);
 
 # dispatch table with references to HTTP::Request::Common functions
 my %methods = ( 
