@@ -79,7 +79,7 @@ Run this script from the bash prompt to start the server.
 =cut
 
 sub _welcome_message {
-    my $message = "Starting Web::MREST ver. $VERSION";
+    my $message = "Starting Web::MREST ver. $Web::MREST::VERSION";
     print "$message\n";
     $log->notice( $message );
 }
