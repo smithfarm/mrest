@@ -154,9 +154,9 @@ sub send_req {
     my $encoded_body_data = encode( "UTF-8", $body_data );
 
     # assemble request
-    my $url = $site->MREST_CLI_URI_BASE;
+    my $url = $meta->MREST_CLI_URI_BASE || 'http://localhost:5000';
     $url .= uri_escape( $path, '%' );
-    print "Encoded URI is $url\n";
+    $log->debug( "Encoded URI is $url" );
     my $r = $methods{$method}->( 
         $url,
         Accept => 'application/json',

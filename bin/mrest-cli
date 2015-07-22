@@ -87,7 +87,10 @@ sub init_cli_client {
     print "Loading configuration files from $target\n";
     my $status = $CELL->load( debug_mode => 1, sitedir => $target );
     die $status->text unless $status->ok;
-    print "Using URI base " . $site->MREST_CLI_URI_BASE . "\n";
+    if ( ! ( $meta->MREST_CLI_URI_BASE ) ) {
+        $meta->set( 'MREST_CLI_URI_BASE', 'http://localhost:5000' );
+    }
+    print "Using URI base " . $meta->MREST_CLI_URI_BASE . "\n";
     print "Hopefully, a server is listening there. . .\n";
     $log->info( "Successfully loaded configuration files from $target" );
 

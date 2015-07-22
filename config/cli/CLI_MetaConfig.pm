@@ -30,39 +30,9 @@
 # POSSIBILITY OF SUCH DAMAGE.
 # ************************************************************************* 
 
-# -----------------------------------
-# Dochazka-CLI
-# -----------------------------------
-# CLI_Config.pm
-#
-# Main configuration file
-# -----------------------------------
-
-# MREST_CLI_COOKIE_JAR
-#     default location of the cookie jar (in user's home directory)
-#     If you don't want it in the user's home directory, specify an absolute
-#     path.
-set( 'MREST_CLI_COOKIE_JAR', ".cookies.txt" );
-
-# MREST_CLI_LOG_FILE
-#     default location of the log file (in user's home directory)
-#     If you don't want it in the user's home directory, specify an absolute
-#     path.
-set( 'MREST_CLI_LOG_FILE', "mrest-cli.log" );
-
-# MREST_CLI_LOG_FILE_RESET
-#     if this is set to a true value, the logfile will be wiped each
-#     time mrest-cli is run
-set( 'MREST_CLI_LOG_FILE_RESET', 1 );
- 
-# MREST_CLI_SUPPRESSED_HEADERS
-#     list of headers to be suppressed in the output
-set ('MREST_CLI_SUPPRESSED_HEADERS', [ qw( 
-    accept content-type content-length cache-control pragma expires
-    server Client-Response-Num Client-Peer Client-Date Set-Cookie Date
-    Vary
-) ] );
-
+# MREST_CLI_URI_BASE
+#     URI of the App::Dochazka::REST server
+set( 'MREST_CLI_URI_BASE', 'http://localhost:5000' ); 
 
 # -----------------------------------
 # DO NOT EDIT ANYTHING BELOW THIS LINE

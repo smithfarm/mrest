@@ -4,6 +4,7 @@ Build.PL
 Changes
 config/cli/CLI_Config.pm
 config/cli/CLI_Message_en.conf
+config/cli/CLI_MetaConfig.pm
 config/srv/dispatch_Message_en.conf
 config/srv/favicon.ico
 config/srv/HTTP_Status_Message_en.conf
