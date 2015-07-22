@@ -433,3 +433,7 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - set $VERSION in top-level module only
 - new release script
 
+0.272  2015-07-22 14:42 CEST
+- Make MREST_CLI_URI_BASE a meta param
+- bin/mrest: take $VERSION from top-level module
+
