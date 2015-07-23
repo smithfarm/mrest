@@ -93,8 +93,7 @@ our @EXPORT_OK = qw( send_req );
 # user agent
 my $ua = LWP::UserAgent->new( 
     ssl_opts => { 
-        verify_hostname => 0, 
-        SSL_ca_file => '/usr/share/pki/trust/anchors/SUSE_Trust_Root.crt.pem' 
+        verify_hostname => 1, 
     }
 );
 

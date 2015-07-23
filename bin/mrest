@@ -120,7 +120,7 @@ sub _parse_argument {
 
 sub _load_config_params {
     my ( $app_distro, $sitedir ) = @_;
-    print "Loading configuration parameters\n";
+    print "Loading configuration parameters from $sitedir\n";
     my $status = Web::MREST::init( distro => $app_distro, sitedir => $sitedir );
     die $status->text unless $status->ok;
 }
