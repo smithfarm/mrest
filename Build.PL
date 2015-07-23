@@ -87,7 +87,7 @@ my $builder = Module::Build->new(
         'Web::Machine'   => 0.15,
     },
     add_to_cleanup     => [ 'Web-MREST-*' ],
-    create_makefile_pl => 'traditional',
+#    create_makefile_pl => 'traditional',
     recursive_test_files => 1,
 );
 
