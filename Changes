@@ -437,3 +437,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - Make MREST_CLI_URI_BASE a meta param
 - bin/mrest: take $VERSION from top-level module
 
+0.273  2015-07-23 17:45 CEST
+- Build.PL: require recent versions of LWP::UserAgent and LWP::Protocol::https
+- No longer generate Makefile.PL
+- UserAgent.pm: enable SSL connections
+
