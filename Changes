@@ -442,3 +442,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - No longer generate Makefile.PL
 - UserAgent.pm: enable SSL connections
 
+0.274  2015-07-25 11:49 CEST
+- bin/mrest: use options instead of positional parameters
+- release scripting modifications
+- Build.PL: make LWP::Protocol::https a BuildRequires as well as a Requires
+

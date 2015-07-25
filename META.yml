@@ -11,7 +11,8 @@ build_requires:
   HTTP::Request: '0'
   HTTP::Request::Common: '0'
   JSON: '0'
-  LWP::UserAgent: '0'
+  LWP::Protocol::https: '6.04'
+  LWP::UserAgent: '6.05'
   Module::Runtime: '0'
   Params::Validate: '0'
   Path::Router: '0.12'
@@ -42,7 +43,7 @@ no_index:
 provides:
   Web::MREST:
     file: lib/Web/MREST.pm
-    version: '0.273'
+    version: '0.274'
   Web::MREST::CLI::Parser:
     file: lib/Web/MREST/CLI/Parser.pm
   Web::MREST::CLI::UserAgent:
@@ -98,4 +99,4 @@ requires:
   perl: '5.012'
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: '0.273'
+version: '0.274'
