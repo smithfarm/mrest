@@ -42,6 +42,7 @@ use warnings;
 use App::CELL qw( $log $site );
 use Web::MREST;
 use Data::Dumper;
+use Getopt::Long;
 use Log::Any::Adapter;
 use Module::Runtime qw( is_module_name require_module );
 use Plack::Builder;
@@ -60,12 +61,13 @@ mrest - Web::MREST server startup script
 
 =head1 SYNOPSIS
 
-    $ mrest My-Distro My::Module
+Possible invocations:
 
-or 
-
-    $ mrest My::Distro My::Module
-
+    $ mrest --distro My-Distro --module My::Module
+    $ mrest -d My::Distro -m My::Module
+    $ mrest --distro My-Distro --module My::Module --sitedir /etc/my-module
+    $ mrest -d My::Distro -m My::Module -s /etc/my-module
+    $ mrest --help
 
 
 =head1 DESCRIPTION
@@ -84,9 +86,8 @@ sub _welcome_message {
     $log->notice( $message );
 }
 
-sub _parse_argument {
-    my ( $distro, $module, $sitedir ) = @ARGV;
-    die "You must provide at least two arguments" unless $distro and $module;
+sub _get_sharedir {
+    my ( $distro, $module, $sitedir ) = @_;
 
     # for distro, we allow both formats My::Distro and My-Distro
     # distro might be just Foo, or Foo::Bar, or Foo-Bar
@@ -114,7 +115,6 @@ sub _parse_argument {
     if ( $status ) {
         die $status;
     }
-    print "Local site configuration directory is $sitedir\n" if $sitedir;
     return ( $app_distro, $app_module, $distro_sharedir, $sitedir );
 }
 
@@ -159,7 +159,26 @@ sub _init_webmachine {
 =cut
 
 _welcome_message();
-my ( $app_distro, $app_module, $distro_sharedir, $sitedir ) = _parse_argument();
+
+# process command-line options
+my $help = 0;
+my $distro = '';
+my $module = '';
+my $sitedir = '';
+GetOptions( 
+    'distro|d=s' => \$distro,
+    'help|?' => \$help, 
+    'module|m=s' => \$module,
+    'sitedir|s=s' => \$sitedir,
+);
+pod2usage(1) if $help;
+
+# distro and module are required
+die "You must specify at least --distro and --module (with values). Bailing out"
+    unless $distro and $module;
+
+my ( $app_distro, $app_module, $distro_sharedir ) = _get_sharedir( $distro, $module );
+print "Local site configuration directory is $sitedir\n" if $sitedir;
 _load_config_params( $app_distro, $sitedir );  # initializes $site
 _set_up_logging();                   # needs $site
 my $app = _init_webmachine( $app_module );
