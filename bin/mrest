@@ -47,6 +47,7 @@ use Log::Any::Adapter;
 use Module::Runtime qw( is_module_name require_module );
 use Plack::Builder;
 use Plack::Runner;
+use Pod::Usage;
 use Try::Tiny;
 use Web::Machine;
 use Web::MREST::Util qw( normalize_filespec );

@@ -153,18 +153,24 @@ and implementing your REST server.
 As stated above, L<Web::MREST> is capable of operating independently. To try
 it out, start up the server like this:
 
-    $ mrest Web-MREST Web::MREST::Dispatch
+    $ mrest-standalone
 
 And then point your browser to
 
     http://localhost:5000
 
-The server startup script, C<bin/mrest>, takes two arguments. The first is the
-name of the distribution in whose sharedir it should look for configuration
-files. The second is the name of the application's resource module, i.e. the
-ultimate module in the chain of inheritance. 
+If you look inside the C<mrest-standlone> script, you will see that it is
+just a wrapper for the C<mrest> script, which takes two mandatory options. The
+first, C<--distro>, is the name of the distribution in whose sharedir it should
+look for configuration files. The second, C<--module>, is the name of the
+application's resource module, i.e. the ultimate module in the chain of
+inheritance.
 
-In standalone mode, the chain of inheritance is built up as follows:
+In standalone mode, the actual command that is run is:
+
+    mrest --distro=Web::MREST --module=Web::MREST::Dispatch
+
+which causes the chain of inheritance to be built up as follows:
 
 =over
 
@@ -186,8 +192,9 @@ inherits from L<Web::Machine::Resource>
 
 =back
 
-For more information on the sample REST resources that are available when the
-server is running in standalone mode, see C<config/dispatch_Config.pm>.
+When you browse to C<http://0:5000> in standalone mode, you get a list of the
+sample REST resources that are available. For more information on these, see
+C<config/dispatch_Config.pm>.
 
 
 =head2 With your application

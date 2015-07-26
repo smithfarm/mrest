@@ -1,5 +1,6 @@
 bin/mrest
 bin/mrest-cli
+bin/mrest-standalone
 Build.PL
 Changes
 config/cli/CLI_Config.pm
