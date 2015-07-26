@@ -33,7 +33,9 @@ my $builder = Module::Build->new(
     },
     build_requires => {
         'App::CELL'      => 0.209,
+        'Cwd'            => 0,
         'Encode'         => 0,
+        'File::Basename' => 0,
         'File::HomeDir'  => 0,
         'File::ShareDir' => 0,
         'File::Spec'     => 0,
