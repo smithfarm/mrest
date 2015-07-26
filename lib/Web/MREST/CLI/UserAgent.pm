@@ -198,15 +198,13 @@ sub send_req {
         if ( ref( $perl_scalar ) ) {
             # if it's a hash, we have faith that it will bless into a status object
             $status = bless $perl_scalar, 'App::CELL::Status';
-        } else {
-            $status = $CELL->status_err( 'MREST_OTHER_ERROR', payload => $perl_scalar );
-            $log->debug("MREST_OTHER_ERROR, payload is ->$perl_scalar<-" );
+        } else { 
+            $status = $CELL->status_err( 'MREST_OTHER_ERROR_REPORT_THIS_AS_A_BUG', payload => $perl_scalar );
+            $log->error("Unexpected HTTP response ->$perl_scalar<-" );
         }
     } else {
         $status = $CELL->status_warn( 'MREST_CLI_HTTP_REQUEST_OK_NODATA' );
     }
-    $status->{'http_code'} = $response->code;
-    $status->{'http_message'} = $response->message;
     $status->{'http_status'} = $response->code . ' ' . $response->message;
 
     # load up headers
