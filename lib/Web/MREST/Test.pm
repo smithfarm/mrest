@@ -115,7 +115,7 @@ unit. Takes a PARAMHASH with two optional parameters:
 
 sub initialize_unit {
     my %ARGS = @_;
-    diag( "Initializing unit " . (caller)[1] . " with arguments " . Dumper( \%ARGS ) );
+    note( "Initializing unit " . (caller)[1] . " with arguments " . Dumper( \%ARGS ) );
     my $class = $ARGS{'class'} || undef;
     my %init_options = $ARGS{'sitedir'}
         ? ( 'sitedir' => $ARGS{'sitedir'} )
