@@ -235,7 +235,9 @@ HTTP response entity.
 sub mrest_generate_response_json {
     my ( $self ) = @_;
     my ( $d, %h, $before, $after, $after_utf8 );
-    $log->debug( "Entering " . __PACKAGE__ . "::mrest_generate_response_json" );
+    my @caller = caller;
+    $log->debug( "Entering " . __PACKAGE__ . "::mrest_generate_response_json, caller is " .
+        Dumper( \@caller ) );
 
     # run the handler
     my $handler = $self->context->{'handler'}; # WWWW
@@ -248,7 +250,8 @@ sub mrest_generate_response_json {
                 "which is not an App::CELL::Status object!";
         }
         if ( $status->not_ok and ! $self->status_declared ) {
-            $self->mrest_declare_status( code => 500, explanation => $status->text );
+            $status->{'http_code'} = 500;
+            $self->mrest_declare_status( $status );
         }
         $response_obj = $status->expurgate;
         $entity = $JSON->encode( $response_obj );
@@ -280,6 +283,8 @@ sub mrest_generate_response_json {
     # put the entity into the response
     $self->response->header('Content-Type' => 'application/json' );
     $self->response->content( $entity );
+
+    $log->debug( "Response will be: " . $self->response->content );
 
     return $entity;
 }

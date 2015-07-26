@@ -192,6 +192,9 @@ permanent - use this to comply with RFC2616. Defaults to true.
 sub mrest_declare_status {
     my $self = shift;
     my @ARGS = @_;
+    my @caller = caller;
+    $log->debug( "Entering " . __PACKAGE__ . "::mrest_declare_status with argument(s) " .
+        Dumper( \@ARGS ) . "\nCaller: " . Dumper( \@caller ) );
 
     # if status gets declared multiple times, keep only the first one
     if ( exists $self->context->{'declared_status'} ) {
@@ -218,6 +221,7 @@ sub mrest_declare_status {
 
         # if 'http_code' property given, move it to the payload
         if ( my $hc = delete( $declared_status->{'http_code'} ) ) {
+            $log->debug( "mrest_declare_status: HTTP code is $hc" );
             $declared_status->payload->{'http_code'} = $hc;
         }
 
@@ -1093,6 +1097,7 @@ sub finish_request {
     #
     if ( $self->status_declared ) {
         my $declared_status = $self->context->{'declared_status'};
+        $log->debug( "finish_request: declared status is " . Dumper( $declared_status ) );
         if ( ! $declared_status->payload->{'http_code'} ) {
             $declared_status->payload->{'http_code'} = $self->response->code;
         } else {
