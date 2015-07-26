@@ -447,3 +447,7 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - release scripting modifications
 - Build.PL: make LWP::Protocol::https a BuildRequires as well as a Requires
 
+0.275  TBA
+- Add missing "use Pod::Usage" to bin/mrest
+- update documentation of standalone mode in MREST.pm
+
