@@ -22,7 +22,9 @@
       "build" : {
          "requires" : {
             "App::CELL" : "0.209",
+            "Cwd" : "0",
             "Encode" : "0",
+            "File::Basename" : "0",
             "File::HomeDir" : "0",
             "File::ShareDir" : "0",
             "File::Spec" : "0",
@@ -89,7 +91,7 @@
    "provides" : {
       "Web::MREST" : {
          "file" : "lib/Web/MREST.pm",
-         "version" : "0.274"
+         "version" : "0.275"
       },
       "Web::MREST::CLI::Parser" : {
          "file" : "lib/Web/MREST/CLI/Parser.pm"
@@ -134,5 +136,5 @@
          "http://opensource.org/licenses/bsd-license.php"
       ]
    },
-   "version" : "0.274"
+   "version" : "0.275"
 }

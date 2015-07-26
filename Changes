@@ -447,7 +447,12 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - release scripting modifications
 - Build.PL: make LWP::Protocol::https a BuildRequires as well as a Requires
 
-0.275  TBA
+0.275  2015-07-26 21:21 CEST
 - Add missing "use Pod::Usage" to bin/mrest
+- Entity.pm: declare error statuses properly in mrest_generate_response_json()
+  (fixes Github issue #6)
+- CLI/UserAgent.pm: in send_req(), be more careful when modifying the response
+- Build.PL: add Cwd and File::Basename to BuildRequires
+- bin/mrest-standalone: add wrapper for starting server in standalone mode
 - update documentation of standalone mode in MREST.pm
 
