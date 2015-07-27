@@ -27,6 +27,7 @@ my $builder = Module::Build->new(
     script_files         => [
         'bin/mrest',
         'bin/mrest-cli',
+        'bin/mrest-standalone',
     ],
     configure_requires => {
         'Module::Build'  => 0,
