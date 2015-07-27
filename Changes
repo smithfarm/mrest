@@ -456,3 +456,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - bin/mrest-standalone: add wrapper for starting server in standalone mode
 - update documentation of standalone mode in MREST.pm
 
+0.276  TBA
+- Include descriptive text with DISPATCH_VERSION and MREST_CLI_SERVER_ERROR message codes
+- Build.PL, MANIFEST.SKIP: release scripting modifications
+- Test.pm: change diag() to note() in initialize_unit()
+

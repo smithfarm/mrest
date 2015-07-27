@@ -45,7 +45,7 @@ no_index:
 provides:
   Web::MREST:
     file: lib/Web/MREST.pm
-    version: '0.275'
+    version: '0.276'
   Web::MREST::CLI::Parser:
     file: lib/Web/MREST/CLI/Parser.pm
   Web::MREST::CLI::UserAgent:
@@ -101,4 +101,4 @@ requires:
   perl: '5.012'
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: '0.275'
+version: '0.276'

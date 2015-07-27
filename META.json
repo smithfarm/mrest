@@ -91,7 +91,7 @@
    "provides" : {
       "Web::MREST" : {
          "file" : "lib/Web/MREST.pm",
-         "version" : "0.275"
+         "version" : "0.276"
       },
       "Web::MREST::CLI::Parser" : {
          "file" : "lib/Web/MREST/CLI/Parser.pm"
@@ -136,5 +136,5 @@
          "http://opensource.org/licenses/bsd-license.php"
       ]
    },
-   "version" : "0.275"
+   "version" : "0.276"
 }
