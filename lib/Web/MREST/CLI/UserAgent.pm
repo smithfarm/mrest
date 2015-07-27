@@ -199,7 +199,7 @@ sub send_req {
             # if it's a hash, we have faith that it will bless into a status object
             $status = bless $perl_scalar, 'App::CELL::Status';
         } else { 
-            $status = $CELL->status_err( 'MREST_OTHER_ERROR_REPORT_THIS_AS_A_BUG', payload => $perl_scalar );
+            $status = $CELL->status_err( 'MREST_CLI_SERVER_ERROR', args => [ $perl_scalar ] );
             $log->error("Unexpected HTTP response ->$perl_scalar<-" );
         }
     } else {
