@@ -73,3 +73,4 @@
 \bApp-Dochazka-Common-[\d\.\_]+
 \bCPAN_NAME$
 release.sh$
+\bMakefile\.PL$
