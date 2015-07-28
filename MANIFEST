@@ -8,8 +8,6 @@ config/HTTP_Status_Message_en.conf
 config/MREST_Config.pm
 config/MREST_Message_en.conf
 lib/Web/MREST.pm
-lib/Web/MREST/CLI/Parser.pm
-lib/Web/MREST/CLI/UserAgent.pm
 lib/Web/MREST/Dispatch.pm
 lib/Web/MREST/Entity.pm
 lib/Web/MREST/InitRouter.pm
