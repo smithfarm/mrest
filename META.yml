@@ -7,7 +7,6 @@ build_requires:
   Cwd: '0'
   Encode: '0'
   File::Basename: '0'
-  File::HomeDir: '0'
   File::ShareDir: '0'
   File::Spec: '0'
   HTTP::Request: '0'
@@ -45,11 +44,7 @@ no_index:
 provides:
   Web::MREST:
     file: lib/Web/MREST.pm
-    version: '0.276'
-  Web::MREST::CLI::Parser:
-    file: lib/Web/MREST/CLI/Parser.pm
-  Web::MREST::CLI::UserAgent:
-    file: lib/Web/MREST/CLI/UserAgent.pm
+    version: '0.277'
   Web::MREST::Dispatch:
     file: lib/Web/MREST/Dispatch.pm
   Web::MREST::Entity:
@@ -73,7 +68,6 @@ provides:
 requires:
   App::CELL: '0.205'
   Encode: '0'
-  File::HomeDir: '0'
   File::ShareDir: '1.00'
   File::Spec: '0'
   Getopt::Long: '2.32'
@@ -97,8 +91,9 @@ requires:
   Test::Deep::NoTest: '0'
   Try::Tiny: '0'
   URI::Escape: '0'
+  Web::MREST::CLI: '0.276'
   Web::Machine: '0.15'
   perl: '5.012'
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: '0.276'
+version: '0.277'
