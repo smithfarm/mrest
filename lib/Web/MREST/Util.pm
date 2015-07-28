@@ -79,7 +79,7 @@ This module provides the following exports:
 =cut
 
 use Exporter qw( import );
-our @EXPORT_OK = qw( $JSON normalize_filespec pod_to_html pod_to_text );
+our @EXPORT_OK = qw( $JSON pod_to_html pod_to_text );
 
 
 
