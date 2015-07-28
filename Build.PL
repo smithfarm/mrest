@@ -12,10 +12,7 @@ my $builder = Module::Build->new(
     create_readme        => 0,
     release_status       => 'stable',
     share_dir            => {
-        dist => [ 'config/srv' ],
-        module => {
-            'Web::MREST::CLI::Parser' => 'config/cli',
-        },
+        dist => [ 'config' ],
     },
     meta_merge => {
         no_index => {
@@ -26,7 +23,6 @@ my $builder = Module::Build->new(
     },
     script_files         => [
         'bin/mrest',
-        'bin/mrest-cli',
         'bin/mrest-standalone',
     ],
     configure_requires => {
