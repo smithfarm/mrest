@@ -90,6 +90,7 @@ my $builder = Module::Build->new(
         'Try::Tiny'      => 0,
         'URI::Escape'    => 0,
         'Web::Machine'   => 0.15,
+        'Web::MREST::CLI' => 0.276,
     },
     add_to_cleanup     => [ 'Web-MREST-*' ],
 #    create_makefile_pl => 'traditional',
