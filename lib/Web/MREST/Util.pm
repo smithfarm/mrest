@@ -37,7 +37,6 @@ use strict;
 use warnings FATAL => 'all';
 
 use App::CELL qw( $log );
-use File::HomeDir;
 use File::Spec;
 use JSON;
 use Pod::Simple::HTML;
@@ -71,8 +70,6 @@ This module provides the following exports:
 
 =item C<$JSON> (singleton)
 
-=item C<normalize_filespec> (function)
-
 =item C<pod_to_html> (function)
 
 =item C<pod_to_text> (function)
@@ -88,24 +85,6 @@ our @EXPORT_OK = qw( $JSON normalize_filespec pod_to_html pod_to_text );
 
 
 =head1 FUNCTIONS
-
-
-=head2 normalize_filespec
-
-Given a filename (path) which might be relative or absolute, return an absolute
-version. If the path was relative, it will be anchored to the home directory of
-the user we are running as.
-
-=cut
-
-sub normalize_filespec {
-    my $fs = shift;
-    my $is_absolute = File::Spec->file_name_is_absolute( $fs );
-    if ( $is_absolute ) {
-        return $fs;
-    }
-    return File::Spec->catfile( File::HomeDir->my_home, $fs );
-}
 
 
 =head2 pod_to_html
