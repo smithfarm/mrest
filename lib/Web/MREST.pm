@@ -1368,7 +1368,7 @@ sub init {
     # always load Web::MREST's configuration parameters
     my $target = File::ShareDir::dist_dir('Web-MREST');
     $log->debug( "About to load Web::MREST configuration parameters from $target" );
-    my $status = $CELL->load( sitedir => $target, verbose => 0, debug_mode => 0 );
+    my $status = $CELL->load( sitedir => $target, verbose => 0 );
     return $status if $status->not_ok;
 
     # if argument provided, load that, too
