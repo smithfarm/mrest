@@ -50,7 +50,7 @@ use Plack::Runner;
 use Pod::Usage;
 use Try::Tiny;
 use Web::Machine;
-use Web::MREST::CLI::UserAgent qw( normalize_filespec );
+use Web::MREST::CLI qw( normalize_filespec );
 
 
  
