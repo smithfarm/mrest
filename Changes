@@ -469,3 +469,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
   - config/: drop all CLI-related files and keep server-related ones
   - Build.PL: require Web::MREST::CLI >= 0.276
 
+0.278  2015-07-30 14:29 CEST
+- Early debugging feature
+- MREST.pm: do not call $CELL->load() with debug_mode param
+- bin/mrest: import normalize_filespec() from Web::MREST::CLI
+
