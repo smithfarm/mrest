@@ -44,7 +44,7 @@ no_index:
 provides:
   Web::MREST:
     file: lib/Web/MREST.pm
-    version: '0.278'
+    version: '0.279'
   Web::MREST::Dispatch:
     file: lib/Web/MREST/Dispatch.pm
   Web::MREST::Entity:
@@ -96,4 +96,4 @@ requires:
   perl: '5.012'
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: '0.278'
+version: '0.279'

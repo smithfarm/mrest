@@ -90,7 +90,7 @@
    "provides" : {
       "Web::MREST" : {
          "file" : "lib/Web/MREST.pm",
-         "version" : "0.278"
+         "version" : "0.279"
       },
       "Web::MREST::Dispatch" : {
          "file" : "lib/Web/MREST/Dispatch.pm"
@@ -129,5 +129,5 @@
          "http://opensource.org/licenses/bsd-license.php"
       ]
    },
-   "version" : "0.278"
+   "version" : "0.279"
 }

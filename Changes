@@ -474,3 +474,6 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - MREST.pm: do not call $CELL->load() with debug_mode param
 - bin/mrest: import normalize_filespec() from Web::MREST::CLI
 
+0.279  2015-07-30 14:36 CEST
+- bin/mrest: fix a silly typo
+
