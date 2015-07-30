@@ -37,6 +37,7 @@ use strict;
 use warnings FATAL => 'all';
 
 use App::CELL qw( $CELL $log $meta $core $site );
+use App::CELL::Test qw( _touch );
 use Data::Dumper;
 use File::ShareDir;
 use Log::Any::Adapter;
@@ -1368,8 +1369,14 @@ sub init {
     
     my $tf = $ARGS{'early_debug'};
     if ( $tf ) {
-        Log::Any::Adapter->set( 'File', $tf );
-        $log->debug( "Web::MREST::init activating early debug logging to $tf" );
+        _touch $tf
+        if ( -r $tf and -w $tf ) {
+            unlink $tf;
+            Log::Any::Adapter->set( 'File', $tf );
+            $log->debug( __PACKAGE__ . "::init activating early debug logging to $tf" );
+        } else {
+            print "Given unreadable/unwritable early debugging filespec $tf\n";
+        }
     }
 
     # always load Web::MREST's configuration parameters
