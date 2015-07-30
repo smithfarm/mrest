@@ -176,7 +176,7 @@ my $sitedir = '';
 my $early_debug = '';
 GetOptions( 
     'distro|d=s' => \$distro,
-    'early-debug|e=s'' => \$early_debug,
+    'early-debug|e=s' => \$early_debug,
     'help|?' => \$help, 
     'module|m=s' => \$module,
     'sitedir|s=s' => \$sitedir,
