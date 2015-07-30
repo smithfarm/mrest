@@ -76,6 +76,13 @@ Possible invocations:
 Run this script from the bash prompt to start the server. 
 
 
+=head1 DEBUGGING OPTIONS
+
+You can include an C<--early-debug> option on the command line, with
+the name of a file in which L<Web::MREST> will capture "early" log
+messages -- i.e. all log messages generated before the official MREST
+log file is known.
+
 
 =head1 FUNCTIONS
 
@@ -120,9 +127,9 @@ sub _get_sharedir {
 }
 
 sub _load_config_params {
-    my ( $app_distro, $sitedir ) = @_;
+    my ( $app_distro, $sitedir, $early_debug ) = @_;
     print "Loading configuration parameters from $sitedir\n";
-    my $status = Web::MREST::init( distro => $app_distro, sitedir => $sitedir );
+    my $status = Web::MREST::init( distro => $app_distro, sitedir => $sitedir, early_debug => $early_debug );
     die $status->text unless $status->ok;
 }
 
@@ -166,13 +173,17 @@ my $help = 0;
 my $distro = '';
 my $module = '';
 my $sitedir = '';
+my $early_debug = '';
 GetOptions( 
     'distro|d=s' => \$distro,
+    'early-debug|e=s'' => \$early_debug,
     'help|?' => \$help, 
     'module|m=s' => \$module,
     'sitedir|s=s' => \$sitedir,
 );
 pod2usage(1) if $help;
+
+print "Early debug mode activated\n" if $early_debug;
 
 # distro and module are required
 die "You must specify at least --distro and --module (with values). Bailing out"
@@ -180,7 +191,7 @@ die "You must specify at least --distro and --module (with values). Bailing out"
 
 my ( $app_distro, $app_module, $distro_sharedir ) = _get_sharedir( $distro, $module );
 print "Local site configuration directory is $sitedir\n" if $sitedir;
-_load_config_params( $app_distro, $sitedir );  # initializes $site
+_load_config_params( $app_distro, $sitedir, $early_debug );  # initializes $site
 _set_up_logging();                   # needs $site
 my $app = _init_webmachine( $app_module );
 my $runner = Plack::Runner->new;

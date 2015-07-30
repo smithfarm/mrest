@@ -39,7 +39,7 @@ use warnings FATAL => 'all';
 use App::CELL qw( $CELL $log $meta $core $site );
 use Data::Dumper;
 use File::ShareDir;
-#use Log::Any::Adapter;
+use Log::Any::Adapter;
 use Params::Validate qw( :all );
 #use Try::Tiny;
 use Web::Machine;
@@ -1363,18 +1363,27 @@ sub init {
         distro => { type => SCALAR, optional => 1 },
         sitedir => { type => SCALAR, optional => 1 },
         hashref => { type => HASHREF, optional => 1 },
+        early_debug => { type => SCALAR, optional => 1 },
     } );
     
+    my $tf = $ARGS{'early_debug'};
+    if ( $tf ) {
+        Log::Any::Adapter->set( 'File', $tf );
+        $log->debug( "Web::MREST::init activating early debug logging to $tf" );
+    }
+
     # always load Web::MREST's configuration parameters
     my $target = File::ShareDir::dist_dir('Web-MREST');
     $log->debug( "About to load Web::MREST configuration parameters from $target" );
-    my $status = $CELL->load( sitedir => $target, verbose => 0 );
+    my $status = $CELL->load( sitedir => $target, verbose => 1 );
     return $status if $status->not_ok;
+
+    $meta->set( 'MREST_EARLY_DEBUGGING', $tf );
 
     # if argument provided, load that, too
     if ( %ARGS ) {
         $target = undef;
-        if ( $ARGS{'distro'} ) {
+        if ( $ARGS{'distro'} and $ARGS{'distro'} ne 'Web-MREST' ) {
             # distro must be given as "MyApp-Foo", not "MyApp::Foo"
             $target = File::ShareDir::dist_dir( $ARGS{'distro'} );
             $status = $CELL->load( sitedir => $target );
