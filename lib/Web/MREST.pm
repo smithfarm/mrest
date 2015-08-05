@@ -1369,7 +1369,7 @@ sub init {
     
     my $tf = $ARGS{'early_debug'};
     if ( $tf ) {
-        _touch $tf
+        _touch $tf;
         if ( -r $tf and -w $tf ) {
             unlink $tf;
             Log::Any::Adapter->set( 'File', $tf );
