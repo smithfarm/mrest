@@ -477,3 +477,7 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 0.279  2015-07-30 14:36 CEST
 - bin/mrest: fix a silly typo
 
+0.280  2015-08-05 15:35 CEST
+- MREST.pm->init(): be more careful about early debugging filespec provided
+  by user
+
