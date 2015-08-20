@@ -349,7 +349,7 @@ sub handler_bugreport {
     return 1 if $self->_first_pass_always_exists( $pass ); 
 
     # second pass
-    return $CELL->status_ok( 'DISPATCH_BUGREPORT', 
+    return $CELL->status_ok( 'MREST_DISPATCH_BUGREPORT', 
         payload => { report_bugs_to => $site->MREST_REPORT_BUGS_TO },
     );
 }
@@ -369,7 +369,7 @@ sub handler_configinfo {
     return 1 if $self->_first_pass_always_exists( $pass ); 
 
     # second pass
-    return $CELL->status_ok( 'DISPATCH_CONFIGINFO', 
+    return $CELL->status_ok( 'MREST_DISPATCH_CONFIGINFO', 
         payload => $meta->CELL_META_SITEDIR_LIST,
     );
 }
@@ -429,7 +429,7 @@ EOH
         $pl->{'format'} = 'text';
         $pl->{'documentation'} = pod_to_text( $docs );
     }
-    return $CELL->status_ok( 'DISPATCH_ONLINE_DOCUMENTATION', payload => $pl );
+    return $CELL->status_ok( 'MREST_DISPATCH_ONLINE_DOCUMENTATION', payload => $pl );
 }
 
 
@@ -540,7 +540,7 @@ sub handler_noop {
         'parent' => $def->{'parent'},
         'children' => $def->{'children'},
     };
-    return $CELL->status_ok( 'DISPATCH_NOOP',
+    return $CELL->status_ok( 'MREST_DISPATCH_NOOP',
         payload => $pl
     );
 }
@@ -683,7 +683,7 @@ sub handler_version {
         }
         : "BUBBA did not find nothin";
 
-    return $CELL->status_ok( 'DISPATCH_VERSION', payload => $payload );
+    return $CELL->status_ok( 'MREST_DISPATCH_VERSION', payload => $payload );
 }
 
 

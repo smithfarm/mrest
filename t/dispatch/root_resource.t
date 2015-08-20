@@ -53,7 +53,7 @@ my $test = initialize_unit();
 foreach my $method ( qw( GET POST PUT DELETE ) ) {
     my $status = req( $test, 200, 'GET', '' );
     is( $status->level, 'OK' );
-    is( $status->code, 'DISPATCH_NOOP' );
+    is( $status->code, 'MREST_DISPATCH_NOOP' );
     cmp_deeply( $status->payload, {
       'parent' => undef,
       'children' => bag( 'configinfo', 'param/:type/:param', 'docu', 'echo', 'test/?:specs', 'version', 'bugreport', 'noop' ),

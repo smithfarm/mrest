@@ -52,7 +52,7 @@ my $test = initialize_unit();
 foreach my $method ( qw( GET POST PUT DELETE ) ) {
     my $status = req( $test, 200, 'GET', 'noop' );
     is( $status->level, 'OK' );
-    is( $status->code, 'DISPATCH_NOOP' );
+    is( $status->code, 'MREST_DISPATCH_NOOP' );
     is_deeply ( $status->payload, {
       'parent' => '/',
       'children' => undef,
