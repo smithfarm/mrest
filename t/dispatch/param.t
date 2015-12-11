@@ -42,6 +42,7 @@ use warnings;
 use App::CELL qw( $log $site );
 use Data::Dumper;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit req );
 
 # instantiate Plack::Test object

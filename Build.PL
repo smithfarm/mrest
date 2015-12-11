@@ -52,6 +52,7 @@ my $builder = Module::Build->new(
         'Test::Fatal'    => 0,
         'Test::JSON'     => 0,
         'Test::More'     => 0,
+        'Test::Warnings' => 0,
         'Try::Tiny'      => 0,
         'URI::Escape'    => 0,
         'Web::Machine'   => 0.15,

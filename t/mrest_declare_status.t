@@ -43,6 +43,7 @@ use App::CELL qw( $CELL );
 use Data::Dumper;
 use JSON;
 use Test::More;
+use Test::Warnings;
 use Web::MREST;
 use Web::MREST::Resource;
 

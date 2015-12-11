@@ -44,6 +44,7 @@ use Web::MREST;
 use Web::MREST::Test qw( initialize_unit );
 use Log::Any::Adapter;
 use Test::More;
+use Test::Warnings;
 
 # instantiate Plack::Test object
 my $test = initialize_unit();

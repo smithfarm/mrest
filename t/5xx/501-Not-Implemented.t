@@ -48,6 +48,7 @@ use warnings;
 use App::CELL qw( $log );
 use Data::Dumper;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit llreq );
 
 use parent 'Web::MREST::Resource';

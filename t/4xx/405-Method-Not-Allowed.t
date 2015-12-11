@@ -46,6 +46,7 @@ use App::CELL qw( $log $site );
 use Data::Dumper;
 use Test::Deep;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit llreq );
 
 my $test = initialize_unit();

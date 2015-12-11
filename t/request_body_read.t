@@ -48,6 +48,7 @@ use HTTP::Request;
 use Encode qw( encode_utf8 );
 use JSON;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit );
 use utf8;
 

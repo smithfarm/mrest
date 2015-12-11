@@ -46,6 +46,7 @@ use App::CELL qw( $log $site );
 use Data::Dumper;
 use HTTP::Request::Common qw( GET PUT POST DELETE HEAD );
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit req );
 
 my $test = initialize_unit();

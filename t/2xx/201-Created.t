@@ -47,6 +47,7 @@ use Data::Dumper;
 use HTTP::Request;
 use Test::Deep;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit llreq );
 
 my $test = initialize_unit();

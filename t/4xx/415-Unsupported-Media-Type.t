@@ -47,6 +47,7 @@ use Data::Dumper;
 use JSON;
 use Test::Deep;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit llreq );
 
 use parent 'Web::MREST::Resource';

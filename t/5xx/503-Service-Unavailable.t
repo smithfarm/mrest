@@ -51,6 +51,7 @@ use Data::Dumper;
 use HTTP::Request::Common qw( GET PUT POST DELETE );
 use JSON;
 use Test::More;
+use Test::Warnings;
 use Web::MREST::Test qw( initialize_unit req );
 
 use parent 'Web::MREST::Resource';
