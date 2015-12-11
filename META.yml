@@ -26,13 +26,14 @@ build_requires:
   Test::Fatal: '0'
   Test::JSON: '0'
   Test::More: '0'
+  Test::Warnings: '0'
   Try::Tiny: '0'
   URI::Escape: '0'
   Web::Machine: '0.15'
 configure_requires:
   Module::Build: '0'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4212, CPAN::Meta::Converter version 2.150001'
+generated_by: 'Module::Build version 0.4205, CPAN::Meta::Converter version 2.140640'
 license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -44,7 +45,7 @@ no_index:
 provides:
   Web::MREST:
     file: lib/Web/MREST.pm
-    version: '0.280'
+    version: '0.281'
   Web::MREST::Dispatch:
     file: lib/Web/MREST/Dispatch.pm
   Web::MREST::Entity:
@@ -96,4 +97,4 @@ requires:
   perl: '5.012'
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: '0.280'
+version: '0.281'

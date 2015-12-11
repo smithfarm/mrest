@@ -481,3 +481,9 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - MREST.pm->init(): be more careful about early debugging filespec provided
   by user
 
+0.281 2015-07-11 12:07 CET
+- config/: rename messages that might clash with application
+- global: do not convert warnings into errors
+- tests: use Test::Warnings to check for unexpected warnings
+- update release and prerelease scripts
+
