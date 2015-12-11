@@ -34,7 +34,7 @@ package Web::MREST::WebServicesIntro;
 
 use 5.012;
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 
 
 =head1 NAME

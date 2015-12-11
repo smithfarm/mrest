@@ -36,7 +36,7 @@ package Web::MREST::Test::503;
 
 use 5.012;
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 
 use App::CELL qw( $log );
 use Web::MREST::Dispatch qw( init_router );
