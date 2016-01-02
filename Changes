@@ -487,3 +487,6 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - tests: use Test::Warnings to check for unexpected warnings
 - update release and prerelease scripts
 
+0.282 2016-01-02 01:17 CET
+- bin/mrest: call app's init() function if it exists
+
