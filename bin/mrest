@@ -140,6 +140,7 @@ sub _set_up_logging {
     unlink $log_file if $should_reset;
     Log::Any::Adapter->set( 'File', $log_file );
     my $message = "Logging to $log_file";
+    print "$message\n";
     $log->info( $message );
 
     if ( ! $site->MREST_APPNAME ) {
@@ -149,6 +150,22 @@ sub _set_up_logging {
         ident => $site->MREST_APPNAME, 
         debug_mode => ( $site->MREST_DEBUG_MODE || 0 ),
     );
+}
+
+sub function_exists {
+    no strict 'refs';
+    my $funcname = shift;
+    return \&{$funcname} if defined &{$funcname};
+    return;
+}
+
+sub _call_init {
+    my $app_module = shift;
+    require_module( $app_module );
+    if ( my $subref = function_exists( $app_module . "::init" ) ) {
+        print "Calling $app_module" . "::init()\n";
+        &$subref();
+    }
 }
 
 sub _init_webmachine {
@@ -193,6 +210,7 @@ my ( $app_distro, $app_module, $distro_sharedir ) = _get_sharedir( $distro, $mod
 print "Local site configuration directory is $sitedir\n" if $sitedir;
 _load_config_params( $app_distro, $sitedir, $early_debug );  # initializes $site
 _set_up_logging();                   # needs $site
+_call_init( $app_module );
 my $app = _init_webmachine( $app_module );
 my $runner = Plack::Runner->new;
 
