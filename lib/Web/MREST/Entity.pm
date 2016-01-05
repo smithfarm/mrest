@@ -133,7 +133,7 @@ sub mrest_generate_response_html {
 
     my $msgobj = $CELL->msg( 
         'MREST_RESPONSE_HTML', 
-        $Web::MREST::VERSION, 
+        $site->MREST_APPLICATION_MODULE,
         $json,
     );
     my $entity = $msgobj
