@@ -490,3 +490,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 0.282 2016-01-02 01:17 CET
 - bin/mrest: call app's init() function if it exists
 
+0.283 2016-08-24 10:08 CET
+- Display application module in HTML header, not Web::MREST
+- add POD caveat: request entity not available until 2nd handler pass
+- release.sh: automate attachment of version number to OBS commit
+
