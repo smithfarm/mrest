@@ -392,6 +392,9 @@ is expected to return a C<App::CELL::Status> object. This object (rendered in
 JSON) becomes the response entity unless overrided by a declared status (see
 C<mrest_declare_status> in L<Web::MREST::Resource>.
 
+B<N.B.:> The request entity is not available to the handler (via
+C<$self->context->{request_entity}> until the second pass!
+
 
 =head2 Status objects
 
