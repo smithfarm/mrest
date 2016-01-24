@@ -318,7 +318,7 @@ sub init_router {
 }
 
 
-=head2 _first_pass
+=head2 _first_pass_always_exists
 
 Boilerplate code for use in handlers of resources that always exist
 
