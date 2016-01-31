@@ -495,3 +495,8 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - add POD caveat: request entity not available until 2nd handler pass
 - release.sh: automate attachment of version number to OBS commit
 
+0.284 2016-07-31 20:07 CET
+- Dispatch.pm: fix POD on _first_pass_always_exists
+- bin/mrest: drop deprecated comments
+- bin/mrest: document how to pass arguments to Plack::Runner
+

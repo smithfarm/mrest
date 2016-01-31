@@ -91,7 +91,7 @@
    "provides" : {
       "Web::MREST" : {
          "file" : "lib/Web/MREST.pm",
-         "version" : "0.283"
+         "version" : "0.284"
       },
       "Web::MREST::Dispatch" : {
          "file" : "lib/Web/MREST/Dispatch.pm"
@@ -130,6 +130,6 @@
          "http://opensource.org/licenses/bsd-license.php"
       ]
    },
-   "version" : "0.283",
+   "version" : "0.284",
    "x_serialization_backend" : "JSON::PP version 2.27203"
 }
