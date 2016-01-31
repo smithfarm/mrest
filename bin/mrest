@@ -213,16 +213,7 @@ _set_up_logging();                   # needs $site
 _call_init( $app_module );
 my $app = _init_webmachine( $app_module );
 my $runner = Plack::Runner->new;
-
-# FIXME: parse @ARGV looking for 'host' and 'port' - if both are present, fine.
-# If only one is present, error exit. If neither are present, default to
-# DOCHAZKA_HOST and DOCHAZKA_PORT
-
 $runner->parse_options(@ARGV);
-
-#my %options = @{ $runner->{'options'} };
-#print "Server host " . ( $options{'host'} || 'undef' ) . "\n";
-#print "Server port " . ( $options{'port'} || 'undef' ) . "\n";
 
 $runner->run( 
     builder {
