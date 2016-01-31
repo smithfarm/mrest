@@ -62,12 +62,14 @@ mrest - Web::MREST server startup script
 
 =head1 SYNOPSIS
 
-Possible invocations:
+Possible invocations (any options after C<--> are parsed by
+L<Plack::Runner>: basically, they can be anything accepted by C<plackup>:
 
     $ mrest --distro My-Distro --module My::Module
     $ mrest -d My::Distro -m My::Module
     $ mrest --distro My-Distro --module My::Module --sitedir /etc/my-module
     $ mrest -d My::Distro -m My::Module -s /etc/my-module
+    $ mrest -- --server Starman
     $ mrest --help
 
 
@@ -76,12 +78,20 @@ Possible invocations:
 Run this script from the bash prompt to start the server. 
 
 
+=head1 PASSING OPTIONS TO PLACK
+
+This script starts the server by instantiates a L<Plack::Runner> object and
+calling its C<run> method. Before doing that, it calls the C<parse_options>
+method with C<@ARGV> as its argument. However, the script does so B<after>
+parsing its own options. Options intended to be parsed by L<Plack::Runner>
+should be placed at the end of the command line, preceded by C<-->.
+
 =head1 DEBUGGING OPTIONS
 
 You can include an C<--early-debug> option on the command line, with
 the name of a file in which L<Web::MREST> will capture "early" log
-messages -- i.e. all log messages generated before the official MREST
-log file is known.
+messages -- i.e. all log messages generated before the "official" MREST
+log file (i.e. the one defined in the site parameters) is known.
 
 
 =head1 FUNCTIONS
