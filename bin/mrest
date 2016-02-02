@@ -144,7 +144,7 @@ sub _load_config_params {
 }
 
 sub _set_up_logging {
-    print "Setting up logging\n";
+    #print "Setting up logging\n";
     my $log_file = normalize_filespec( $site->MREST_LOG_FILE );
     my $should_reset = $site->MREST_LOG_FILE_RESET;
     unlink $log_file if $should_reset;
