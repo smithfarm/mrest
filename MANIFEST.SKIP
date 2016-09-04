@@ -1,4 +1,3 @@
-
 #!start included /usr/lib/perl5/5.18.1/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
@@ -67,10 +66,16 @@
 \bBuild.COM$
 \bBUILD.COM$
 \bbuild.com$
-\bMANIFEST\.SKIP$
+^MANIFEST\.SKIP
 
 # Avoid archives of this distribution
 \bApp-Dochazka-Common-[\d\.\_]+
+
+# Avoid release script helper files
 \bCPAN_NAME$
-release.sh$
-\bMakefile\.PL$
+\bOBS_PROJECT$
+\bVERSION_MODULE$
+
+# Avoid perlcritic, travis config files
+\B\.perlcriticrc\b
+\B\.travis.yml\b
