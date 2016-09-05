@@ -500,3 +500,9 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - bin/mrest: drop deprecated comments
 - bin/mrest: document how to pass arguments to Plack::Runner
 
+0.285 2016-09-05 09:02 CEST
+- bin/mrest: comment out a useless message
+- Travis CI
+- Merge README files into single README.rst
+- Add helper files for release automation scripting
+
