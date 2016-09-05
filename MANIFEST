@@ -22,8 +22,7 @@ LICENSE
 MANIFEST			This list of files
 META.json
 META.yml
-README
-README.md
+README.rst
 t/2xx/200-OK.t
 t/2xx/201-Created.t
 t/4xx/400-Bad-Request.t
