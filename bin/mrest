@@ -105,7 +105,7 @@ sub _welcome_message {
 }
 
 sub _get_sharedir {
-    my ( $distro, $module, $sitedir ) = @_;
+    my ( $distro, $module ) = @_;
 
     # for distro, we allow both formats My::Distro and My-Distro
     # distro might be just Foo, or Foo::Bar, or Foo-Bar
@@ -133,7 +133,7 @@ sub _get_sharedir {
     if ( $status ) {
         die $status;
     }
-    return ( $app_distro, $app_module, $distro_sharedir, $sitedir );
+    return ( $app_distro, $app_module, $distro_sharedir );
 }
 
 sub _load_config_params {
