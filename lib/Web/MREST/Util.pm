@@ -1,5 +1,5 @@
 # ************************************************************************* 
-# Copyright (c) 2014-2015-2015, SUSE LLC
+# Copyright (c) 2014-2016, SUSE LLC
 # 
 # All rights reserved.
 # 
@@ -39,6 +39,8 @@ use warnings;
 use App::CELL qw( $log );
 use File::Spec;
 use JSON;
+use Params::Validate qw( :all );
+use Plack::Session;
 use Pod::Simple::HTML;
 use Pod::Simple::Text;
 
@@ -70,6 +72,8 @@ This module provides the following exports:
 
 =item C<$JSON> (singleton)
 
+=item C<get_session> (function)
+
 =item C<pod_to_html> (function)
 
 =item C<pod_to_text> (function)
@@ -79,7 +83,12 @@ This module provides the following exports:
 =cut
 
 use Exporter qw( import );
-our @EXPORT_OK = qw( $JSON pod_to_html pod_to_text );
+our @EXPORT_OK = qw(
+    $JSON
+    get_session
+    pod_to_html
+    pod_to_text
+);
 
 
 
@@ -130,6 +139,33 @@ sub pod_to_text {
     $p->output_string(\my $text_str);
     $p->parse_string_document($pod_str);
     return $text_str;
+}
+
+
+=head2 get_session
+
+Given a Plack environment (hashref), returns session object. If there is no
+session object in the environment, it creates one.
+
+Returns: nothing
+
+=cut
+
+sub get_session {
+    my ( $env ) = validate_pos( @_, { type => HASHREF } );
+    my $session;
+
+    if ( ${ $env->{'psgix.session'} } ) {
+        $session = $env->{'psgix.session'};
+        $log->info( "Plack environment already contains session " . $session->id );
+    } else {
+        $session = Plack::Session->new( $env );
+        $log->info( "Session missing in Plack environment; created new session " . $session->id );
+    }
+
+    die "Dying in Web::MREST::Util::get_session because Plack environment still doesn't have a psgix.session property" unless ${ $env->{'psgix.session'} };
+
+    return;
 }
 
 1;
