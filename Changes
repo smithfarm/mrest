@@ -506,3 +506,9 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - Merge README files into single README.rst
 - Add helper files for release automation scripting
 
+0.286 2016-09-24 14:35 CEST
+- Drop deprecated local release scripts
+- cleanup: drop unused _get_sharedir() argument in bin/mrest
+- cleanup: fix copyright header in bin/mrest
+- Add get_session() function to Util.pm
+

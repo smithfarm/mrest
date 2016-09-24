@@ -57,11 +57,11 @@ Web::MREST - Minimalistic REST server
 
 =head1 VERSION
 
-Version 0.285
+Version 0.286
 
 =cut
 
-our $VERSION = '0.285';
+our $VERSION = '0.286';
 
 
 =head2 Development status
