@@ -512,3 +512,7 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - cleanup: fix copyright header in bin/mrest
 - Add get_session() function to Util.pm
 
+0.287 2017-02-25 09:38 CET
+- Refrain from munging Plack::Session object
+- script: store sessions in a dedicated directory in /tmp
+
