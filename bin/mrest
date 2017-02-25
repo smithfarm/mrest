@@ -42,11 +42,13 @@ use warnings;
 use App::CELL qw( $log $site );
 use Web::MREST;
 use Data::Dumper;
+use File::Path qw( remove_tree );
 use Getopt::Long;
 use Log::Any::Adapter;
 use Module::Runtime qw( is_module_name require_module );
 use Plack::Builder;
 use Plack::Runner;
+use Plack::Session::Store::File;
 use Pod::Usage;
 use Try::Tiny;
 use Web::Machine;
@@ -228,6 +230,8 @@ _call_init( $app_module );
 my $app = _init_webmachine( $app_module );
 my $runner = Plack::Runner->new;
 $runner->parse_options(@ARGV);
+remove_tree('/tmp/mrest-sessions');
+mkdir '/tmp/mrest-sessions';
 
 $runner->run( 
     builder {
@@ -238,7 +242,10 @@ $runner->run(
             $log->$level( $message );
         };
 #        enable "StackTrace", force => 1;
-        enable "Session", store => 'File';
+#        enable "Session", store => 'File';
+        enable "Session", store => Plack::Session::Store::File->new(
+            dir => '/tmp/mrest-sessions'
+        );
         enable "Static", path => qr{/favicon}, root => $distro_sharedir;
         $app;
     }
