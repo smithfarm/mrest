@@ -238,7 +238,7 @@ $runner->run(
             $log->$level( $message );
         };
 #        enable "StackTrace", force => 1;
-        enable "Session";
+        enable "Session", store => 'File';
         enable "Static", path => qr{/favicon}, root => $distro_sharedir;
         $app;
     }
