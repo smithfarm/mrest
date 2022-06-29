@@ -76,7 +76,7 @@ certainly bugs lurking in the code, but all features have been implemented.
 
 To take this module for a spin, execute this command:
 
-    $ mrest Web-MREST Web::MREST::Dispatch
+    $ mrest-standalone
 
 Leave this running, and from another console start the command-line client:
 
@@ -245,7 +245,7 @@ executable with the name of your application's distribution and the name of its
 dispatch module, which should be the ultimate module in the chain of
 inheritance.
 
-    $ perl mrest YourApp YourApp::Dispatch
+    $ mrest --distro YourApp --module YourApp::Dispatch
 
 Under the hood the startup script, which can be reviewed at C<bin/mrest>, 
 does essentially this:
