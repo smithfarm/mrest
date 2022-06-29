@@ -93,6 +93,7 @@ A similar result can be obtained using C<curl>:
 
      curl -v http://localhost:5000/ -X GET -H "Content-Type: application/json"
 
+For more information on using the CLI client, see L<Web::MREST::CLI>.
 
 
 
