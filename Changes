@@ -527,3 +527,6 @@ t/dispatch/param.t: add test cases for 'param/...' resource
 - lib: update copyright year range in source files
 - doc: MREST.pm: point readers to CLI documentation
 
+0.290 2022-06-29 14:49 CEST
+- MANIFEST.SKIP: do not include bootstrap scripts in Perl distro
+
